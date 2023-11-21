@@ -1,0 +1,9 @@
+
+<form>
+  <mat-form-field appearance="outline">
+    <mat-label> City or code: </mat-label>
+    <mat-icon matPrefix>search</mat-icon>
+    <mat-hint> Provide city name, zip code, &/or country code</mat-hint>
+    <mat-error *ngIf="search.invalid"></mat-error>
+<input matInput arial-label="City or zip code"[formControl="search"]/>
+  </mat-form-field>

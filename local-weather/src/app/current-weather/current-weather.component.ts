@@ -1,21 +1,25 @@
-import { Component } from '@angular/core';
-import { ICurrentWeather } from '../icurrent-weather';
+import { Component } from '@angular/core'
+import { ICurrentWeather } from '../icurrent-weather'
+import { WeatherService } from '../weather.service'
 /*import { CommonModule } from '@angular/common'; */
 
 @Component({
   selector: 'app-current-weather',
- /* standalone: true,
+  /* standalone: true,
   imports: [CommonModule],*/
   templateUrl: './current-weather.component.html',
-  styleUrl: './current-weather.component.css'
+  styleUrl: './current-weather.component.css',
 })
 export class CurrentWeatherComponent {
   current: ICurrentWeather = {
-    city: 'Redmond',
-    country: 'US',
+    city: '',
+    country: '',
     date: new Date(),
     image: '',
-    temperature: 50,
-    description: 'Windy'
+    temperature: 0,
+    description: '',
+  }
+  constructor(private WeatherService: WeatherService) {
+    this.WeatherService.getCurrentWeather(${city}, ${country}).subscribe(data => this.current = data)     /*guessing ${city}, example used "cityName"
   }
 }
